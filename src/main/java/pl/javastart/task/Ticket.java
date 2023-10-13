@@ -1,6 +1,6 @@
 package pl.javastart.task;
 
-abstract class Ticket {
+class Ticket {
     private final String eventName;
     private final Address eventAddress;
     private final TicketType type;
@@ -9,8 +9,7 @@ abstract class Ticket {
     private final int ticketNumber;
     private static int number = 121020231;
 
-    Ticket(String eventName, Address eventAddress, TicketType type,
-                  double basePrice, double discount) {
+    Ticket(String eventName, Address eventAddress, TicketType type, double basePrice, double discount) {
         this.eventName = eventName;
         this.eventAddress = eventAddress;
         this.type = type;

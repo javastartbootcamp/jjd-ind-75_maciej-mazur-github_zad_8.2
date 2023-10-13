@@ -19,26 +19,12 @@ class TicketCreator {
         sc.nextLine();
 
         double discount = getDiscount();
-        Ticket ticket = null;
 
-        switch (type) {
-            case ONLINE -> {
-                System.out.print("Podaj adres email odbiorcy: ");
-                String email = sc.nextLine();
-                ticket = new OnlineTicket(eventName, eventAddress, basePrice, discount, email);
-            }
-            case STANDARD -> {
-                System.out.println("Podaj adres odbiorcy:");
-                Address recipientAddress = getAddress();
-                ticket = new StandardTicket(eventName, eventAddress, basePrice, discount, recipientAddress);
-            }
-            case GIFT -> {
-                ticket = new GiftTicket(eventName, eventAddress, basePrice, discount);
-            }
-            default -> { }
-        }
-
-        return ticket;
+        return switch (type) {
+            case ONLINE -> new Ticket(eventName, eventAddress, TicketType.ONLINE, basePrice, discount);
+            case STANDARD -> new Ticket(eventName, eventAddress, TicketType.STANDARD, basePrice, discount);
+            case GIFT -> new Ticket(eventName, eventAddress, TicketType.GIFT, basePrice, discount);
+        };
     }
 
     private static Address getAddress() {

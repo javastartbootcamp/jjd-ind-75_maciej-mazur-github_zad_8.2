@@ -1,10 +1,10 @@
 package pl.javastart.task;
 
 public class Address {
-    private String city;
-    private String street;
-    private String buildingNo;
-    private String apt;
+    private final String city;
+    private final String street;
+    private final String buildingNo;
+    private final String apt;
 
     public Address(String city, String street, String buildingNo, String apt) {
         this.city = city;
