@@ -19,12 +19,7 @@ class TicketCreator {
         sc.nextLine();
 
         double discount = getDiscount();
-
-        return switch (type) {
-            case ONLINE -> new Ticket(eventName, eventAddress, TicketType.ONLINE, basePrice, discount);
-            case STANDARD -> new Ticket(eventName, eventAddress, TicketType.STANDARD, basePrice, discount);
-            case GIFT -> new Ticket(eventName, eventAddress, TicketType.GIFT, basePrice, discount);
-        };
+        return new Ticket(eventName, eventAddress, type, basePrice, discount);
     }
 
     private static Address getAddress() {
